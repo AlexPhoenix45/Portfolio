@@ -91,9 +91,10 @@ html {
 /* BACKGROUND */
 
 body {
-    height: 2000px;
+    /* height: 2000px; */
     width: 100%;
-    background: linear-gradient(90deg, #756DFC 0%, #86F4FE 100%);
+    background: linear-gradient(90deg, #756DFC 0%, #86F4FE 100%) no-repeat;
+    /* transition: background-image 1s ease-in-out; */
 }
 
 /* NAVIGATION */
@@ -179,7 +180,7 @@ body {
 }
 
 .nav--top {
-    position: fixed;
+    position: sticky;
     background: linear-gradient(90deg, #756DFC 0%, #87F5FF 100%, #86F4FE 100%);
     box-shadow: 0px 26px 26px -20px rgba(0, 0, 0, 0.25);
     top: 0px!important;
@@ -240,6 +241,10 @@ body {
     font-size: 24px;
 }
 
+.ordinal .text1 {
+    font-size: 24px;
+}
+
 .ordinal .line {
     content: "";
     display: block;
@@ -267,13 +272,34 @@ body {
     height: auto;
     display: block;
     border-radius: 6px;
-    filter: grayscale(1);
+    /* filter: grayscale(1); */
     transition: 0.5s;
 }
 
-.content .img img:hover {
-    filter: grayscale(0);
+.content .img {
+    transition: 0.5s;
 }
+
+#next, #back {
+    position: relative;
+    bottom: 50%;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    display: inline;
+}
+
+#next {
+    left: 91%;
+}
+
+#back {
+    right: 2%;
+}
+
+/* .content .img img:hover {
+    filter: grayscale(0);
+} */
 
 /* WORK */
 #work {
@@ -392,4 +418,79 @@ body {
     background-color: #4E4E4E;
     height: 3px;
     margin: auto;
+}
+
+@media only screen and (max-width: 1350px) {
+    #introduction {
+        width: 100%;
+    }
+
+    #work .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 1250px) {
+    .content {
+        grid-template-rows: auto auto;
+        grid-template-columns: none;
+    }
+
+    .content .img {
+        width: 450px;
+        margin: auto;
+        padding-top: 75px;
+    }
+
+    #work {
+        margin-top: 100px;
+    }
+
+    #contact {
+        margin-top: 250px;
+    }
+
+    #next {
+        left: 90%;
+    }
+
+    #back {
+    right: -1%;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .line {
+        display: none!important;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    #work .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 786px) {
+    #bodypart {
+        padding: 0 50px;
+    }
+
+    .content .img {
+        width: 450px;
+        margin: auto;
+        padding-top: 75px;
+    }
+
+    .ordinal .text1 span {
+        display: none;
+    }
+    
+    .ordinal .text1:after {
+        content: "My Works";
+    }
 }
